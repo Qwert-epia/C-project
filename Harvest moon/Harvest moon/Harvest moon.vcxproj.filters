@@ -45,12 +45,6 @@
     <ClCompile Include="Engine\Input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Scene\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Scene\SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Sound\SoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -174,12 +168,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Input\Keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Scene\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Scene\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Sound\SoundManager.h">
@@ -319,6 +307,7 @@
     <None Include="Resources\Images\Tmx\Granja.tmx" />
     <None Include="Resources\Images\Tmx\Tileset cultius.tsx" />
     <None Include="Resources\Images\Tmx\Tileset obstacles.tsx" />
+    <None Include="Resources\Images\Tmx\Intern.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Barn &amp; Coop Inside.png">
@@ -439,6 +428,36 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\Images\Edificis\Edifici sitja.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Intern.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Jack.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\SNES - Harvest Moon - Jack.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Edificis\Eines.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Edificis\Interior casa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Edificis\Interior caseta.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Edificis\Interior estable gallina.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Edificis\Interior estable vaca.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

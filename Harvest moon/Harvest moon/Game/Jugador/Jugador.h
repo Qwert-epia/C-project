@@ -15,6 +15,11 @@ class Jugador {
 public:
 	Jugador(Video* video, ResourceManager* rscManager);
 
+	// GET-SET
+	void setPosicioX(int posX) { _posJugadorX = posX; }
+	void setPosicioY(int posY) { _posJugadorY = posY; }
+
+	// FUNCIONS
 	void RenderJugador(int posX, int posY);	
 	void UpdateJugador();	
 

@@ -17,7 +17,7 @@ public:
 	void Render();
 	void Update();
 
-	void setJugador(Jugador* jugadorGranja) { _jugadorGranja = jugadorGranja; };
+	void setJugador(Jugador* jugador) { _jugadorGranja = jugador; };
 	EscenaEnum getNumEscena() { return _numEscenaQueVullAnar; };
 
 

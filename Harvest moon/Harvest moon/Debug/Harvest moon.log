@@ -1,7 +1,7 @@
 ﻿  tinyxml2.cpp
   main.cpp
   DirectorEscenes.cpp
-D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\Ferran\Desktop\C-project\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
   Escena.cpp
   Eina.cpp
   AnimalShop.cpp
@@ -33,7 +33,7 @@ D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\Harvest moon\Harvest 
   Meteorologia.cpp
   Intro.cpp
   Granja.cpp
-D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\Ferran\Desktop\C-project\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
   MainMenu.cpp
   JuiceBar.cpp
   Poble.cpp
@@ -47,4 +47,4 @@ D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\Harvest moon\Harvest 
   Productes.cpp
   Proves.cpp
   Generando código...
-  Harvest moon.vcxproj -> D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\Harvest moon\Debug\Harvest moon.exe
+  Harvest moon.vcxproj -> C:\Users\Ferran\Desktop\C-project\Harvest moon\Debug\Harvest moon.exe

@@ -170,8 +170,6 @@
     <ClCompile Include="Engine\Graphics\Video.cpp" />
     <ClCompile Include="Engine\Input\InputManager.cpp" />
     <ClCompile Include="Engine\Input\Keyboard.cpp" />
-    <ClCompile Include="Engine\Scene\Scene.cpp" />
-    <ClCompile Include="Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Engine\Sound\SoundManager.cpp" />
     <ClCompile Include="Game\Inventari\Inventari.cpp" />
     <ClCompile Include="Game\Jugador\Jugador.cpp" />
@@ -215,8 +213,6 @@
     <ClInclude Include="Engine\Input\Gamepad.h" />
     <ClInclude Include="Engine\Input\InputManager.h" />
     <ClInclude Include="Engine\Input\Keyboard.h" />
-    <ClInclude Include="Engine\Scene\Scene.h" />
-    <ClInclude Include="Engine\Scene\SceneManager.h" />
     <ClInclude Include="Engine\Sound\SoundManager.h" />
     <ClInclude Include="Game\Inventari\Inventari.h" />
     <ClInclude Include="Game\Jugador\Jugador.h" />
@@ -274,6 +270,7 @@
     <None Include="Resources\Images\Tmx\Edifici estable vaca.tsx" />
     <None Include="Resources\Images\Tmx\Edifici sitja.tsx" />
     <None Include="Resources\Images\Tmx\Granja.tmx" />
+    <None Include="Resources\Images\Tmx\Intern.tsx" />
     <None Include="Resources\Images\Tmx\Tileset cultius.tsx" />
     <None Include="Resources\Images\Tmx\Tileset obstacles.tsx" />
     <None Include="SDL2.dll" />
@@ -301,7 +298,15 @@
     <Image Include="Resources\Images\Edificis\Edifici estable vaca interior.png" />
     <Image Include="Resources\Images\Edificis\Edifici estable vaca.png" />
     <Image Include="Resources\Images\Edificis\Edifici sitja.png" />
+    <Image Include="Resources\Images\Edificis\Eines.png" />
+    <Image Include="Resources\Images\Edificis\Interior casa.png" />
+    <Image Include="Resources\Images\Edificis\Interior caseta.png" />
+    <Image Include="Resources\Images\Edificis\Interior estable gallina.png" />
+    <Image Include="Resources\Images\Edificis\Interior estable vaca.png" />
     <Image Include="Resources\Images\Farm Spring.png" />
+    <Image Include="Resources\Images\Green.png" />
+    <Image Include="Resources\Images\Intern.png" />
+    <Image Include="Resources\Images\Jack.png" />
     <Image Include="Resources\Images\Mascotes.png" />
     <Image Include="Resources\Images\Personatges\Cain.png" />
     <Image Include="Resources\Images\Personatges\Carpenter Ken.png" />
@@ -317,6 +322,8 @@
     <Image Include="Resources\Images\Pets.png" />
     <Image Include="Resources\Images\Pollastre.png" />
     <Image Include="Resources\Images\Pollastres.png" />
+    <Image Include="Resources\Images\Red.png" />
+    <Image Include="Resources\Images\SNES - Harvest Moon - Jack.png" />
     <Image Include="Resources\Images\Tiles.png" />
     <Image Include="Resources\Images\TilesetCultius.png" />
     <Image Include="Resources\Images\TilesetObstacles.png" />
