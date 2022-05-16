@@ -109,66 +109,18 @@ int main(int argc, char* args[]) {
 		}
 
 		// CANVI MANUAL D'ESCENES
-		if (key_escena1)
-		{
-			directorEscenes->CanviEscena(INTRO);
-			key_escena1 = false;
-		}
-		else if (key_escena2)
-		{
-			directorEscenes->CanviEscena(MAINMENU);
-			key_escena2 = false;
-		}
-		else if (key_escena3)
-		{
-			directorEscenes->CanviEscena(GRANJA);
-			key_escena3 = false;
-		}
-		else if (key_escena4)
-		{
-			directorEscenes->CanviEscena(POBLE);
-			key_escena4 = false;
-		}
-		else if (key_escena5)
-		{
-			directorEscenes->CanviEscena(CASA);
-			key_escena4 = false;
-		}
-		else if (key_escena6)
-		{
-			directorEscenes->CanviEscena(ESTABLE_GALLINES);
-			key_escena4 = false;
-		}
-		else if (key_escena7)
-		{
-			directorEscenes->CanviEscena(ESTABLE_VAQUES);
-			key_escena4 = false;
-		}
-		else if (key_escena8)
-		{
-			directorEscenes->CanviEscena(CASETA);
-			key_escena4 = false;
-		}
-		else if (key_escena9)
-		{
-			directorEscenes->CanviEscena(_LASTSCENE);
-			key_escena4 = false;
-		}
-		else if (key_escena10)
-		{
-			directorEscenes->CanviEscena(_LASTSCENE);
-			key_escena4 = false;
-		}
-		else if (key_escena11)
-		{
-			directorEscenes->CanviEscena(_LASTSCENE);
-			key_escena4 = false;
-		}
-		else if (key_escena12)
-		{
-			directorEscenes->CanviEscena(_LASTSCENE);
-			key_escena4 = false;
-		}
+		if (key_escena1)		{ directorEscenes->CanviEscena(INTRO);				key_escena1 = false; }
+		else if (key_escena2)	{ directorEscenes->CanviEscena(MAINMENU);			key_escena2 = false; }
+		else if (key_escena3)	{ directorEscenes->CanviEscena(GRANJA);				key_escena3 = false; }
+		else if (key_escena4)	{ directorEscenes->CanviEscena(POBLE);				key_escena4 = false; }
+		else if (key_escena5)	{ directorEscenes->CanviEscena(CASA);				key_escena5 = false; }
+		else if (key_escena6)	{ directorEscenes->CanviEscena(ESTABLE_GALLINES);	key_escena6 = false; }
+		else if (key_escena7)	{ directorEscenes->CanviEscena(ESTABLE_VAQUES);		key_escena7 = false; }
+		else if (key_escena8)	{ directorEscenes->CanviEscena(CASETA);				key_escena8 = false; }
+		else if (key_escena9)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena9 = false; }
+		else if (key_escena10)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena10 = false; }
+		else if (key_escena11)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena11 = false; }
+		else if (key_escena12)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena12 = false; }
 
 		// Update + render de l'escena actual
 		directorEscenes->Update();
