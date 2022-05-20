@@ -5,8 +5,9 @@
 #include "../../Jugador/Jugador.h";
 #include "../DirectorEscenes.h"
 
-class Granja : public Escena
-{
+
+class Granja : public Escena {
+
 public:
 	int dia;
 	Meteorologia meteoActual;
@@ -14,8 +15,8 @@ public:
 
 	void Init(Video* video, ResourceManager* rscManager);
 	void ReInit();
-	void Render();
 	void Update();
+	void Render();
 
 	void setJugador(Jugador* jugador) { _jugadorGranja = jugador; };
 	EscenaEnum getNumEscena() { return _numEscenaQueVullAnar; };
@@ -24,10 +25,10 @@ public:
 private:
 	int _posMonX;
 	int _posMonY;
-	//bool _canviEscena;
+
 	Direcio _dirActual;
-	void EscriurePosicio(Direcio direcio, Mapa* map, bool actiu);
 	Jugador* _jugadorGranja;
 	EscenaEnum _numEscenaQueVullAnar;
-};
 
+	void EscriurePosicio(Direcio direcio, Mapa* map, bool actiu);
+};

@@ -193,6 +193,8 @@
   <ItemGroup>
     <ClInclude Include="Altres\Definicions.h" />
     <ClInclude Include="Altres\Llibreries\tinyxml2.h" />
+    <ClInclude Include="Game\Efectes adversos\Temps\Clima.h" />
+    <ClInclude Include="Game\Efectes adversos\Temps\Estacio.h" />
     <ClInclude Include="Game\Escenes\DirectorEscenes.h" />
     <ClInclude Include="Game\Escenes\Escena.h" />
     <ClInclude Include="Game\Inventari\Eines\Eina.h" />
@@ -218,6 +220,8 @@
     <ClInclude Include="Engine\Input\Keyboard.h" />
     <ClInclude Include="Engine\Sound\SoundManager.h" />
     <ClInclude Include="Game\Inventari\Inventari.h" />
+    <ClInclude Include="Game\Inventari\ProducteVegetal\Llavor.h" />
+    <ClInclude Include="Game\Jugador\Direccio.h" />
     <ClInclude Include="Game\Jugador\Jugador.h" />
     <ClInclude Include="Game\Efectes adversos\Temps\Meteorologia.h" />
     <ClInclude Include="Game\Escenes\Especials\Intro.h" />

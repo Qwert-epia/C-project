@@ -1,13 +1,6 @@
 #pragma once
-enum Estacio
-{
-	PRIMAVERA, ESTIU, TARDO, HIVERN
-};
-
-enum Clima
-{
-	ASSOLELLAT, PLUJA, TORNADO, NEVA
-};
+#include "../../Efectes adversos/Temps/Estacio.h"
+#include "../../Efectes adversos/Temps/Clima.h"
 
 class Meteorologia
 {

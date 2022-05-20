@@ -1,6 +1,7 @@
 #include "Granja.h"
 
-void Granja::Init(Video* video, ResourceManager* rscManager) {
+void Granja::Init(Video* video, ResourceManager* rscManager)
+{
 	_videoEscena = video;
 	_rscManagerEscena = rscManager;
 
@@ -14,12 +15,15 @@ void Granja::Init(Video* video, ResourceManager* rscManager) {
 void Granja::ReInit()
 {
 	_videoEscena->clearScreen();
+
 	_posMonX = 34;
 	_posMonY = 408;
+
 	_dirActual = EST;
-	//_canviEscena = false;
-	map->setActivarRequadre(false);
+
 	_numEscenaQueVullAnar = GRANJA;
+
+	map->setActivarRequadre(false);
 	map->ResetsPosicioRequadre();
 }
 
@@ -55,7 +59,8 @@ void Granja::Update()
 
 	do {
 		SDL_Event event;
-		while (SDL_PollEvent(&event)) {
+		while (SDL_PollEvent(&event))
+		{
 			switch (event.type) {
 
 			case SDL_KEYDOWN:
@@ -83,17 +88,20 @@ void Granja::Update()
 					if (key_Requadre) key_Requadre = false;
 					else key_Requadre = true;
 				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_G) {
+				if (event.key.keysym.scancode == SDL_SCANCODE_G)
+				{
 					if (!key_Guardar)
 						key_Guardar = true;
 				}
 				break;
 
 			case SDL_MOUSEBUTTONUP:
-				if (event.button.button == SDL_BUTTON_LEFT) {
+				if (event.button.button == SDL_BUTTON_LEFT)
+				{
 					mouse_click_plantar = true;
 				}
-				if (event.button.button == SDL_BUTTON_RIGHT) {
+				if (event.button.button == SDL_BUTTON_RIGHT)
+				{
 					mouse_click_desplantar = true;
 				}
 				break;
@@ -203,7 +211,7 @@ void Granja::Update()
 		}
 		else
 			Render();
-				
+
 	} while (!goexit);
 
 	std::cout << "Surt de granja" << endl;

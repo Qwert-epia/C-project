@@ -260,6 +260,18 @@
     <ClInclude Include="Game\Escenes\Especials\Proves.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Efectes adversos\Temps\Estacio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Efectes adversos\Temps\Clima.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Inventari\ProducteVegetal\Llavor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Jugador\Direccio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Llibreries\libFLAC-8.dll" />

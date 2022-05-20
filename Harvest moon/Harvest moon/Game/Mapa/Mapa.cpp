@@ -251,13 +251,39 @@ bool Mapa::HiHaObstacle_SUD(int camJugX, int camJugY)
 	return true;
 }
 
+void Mapa::Llaurar()
+{
+	// TODO: comprobar si pot llaura en aquesta posicio
+	_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] = 1;
+}
+
+void Mapa::Plantar(int quinaPlanta)
+{
+	// TODO: Comprobar si esta llaurat i plantar en funcio si esta regat o no
+}
+
+void Mapa::Regar()
+{
+	// TODO: regar si no esta regat
+	if (_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] == 1) {
+		_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] = 2;
+	}
+}
+
+void Mapa::Femtar()
+{
+	// TODO: implementar
+}
+
 void Mapa::ModificarData_PlantarTomata()
 {
+	// PENDENT: asdf
 	_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] = 53;
 }
 
 void Mapa::ModificarData_Desplantar()
 {
+	// TODO: canviar nom
 	_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] = 122;
 }
 
@@ -453,6 +479,7 @@ Mapa::Mapa(Video* videoManager, ResourceManager* rscManager)
 
 	LoadMapa();
 	LoadExtres();
+	LoadCultius();
 }
 
 #pragma endregion
@@ -499,8 +526,7 @@ void Mapa::ObtenirAtributs()
 
 void Mapa::ObtenirTilesets()
 {
-	// Obtenir i setejar els diferents tilesets: <map> -> <tileset>* n	
-
+	// Obtenir i setejar els diferents tilesets: <map> -> <tileset>* n
 	tinyxml2::XMLElement* tileset = _map->FirstChildElement("tileset");
 	for (tinyxml2::XMLElement* tileset = _map->FirstChildElement("tileset"); tileset != NULL; tileset = tileset->NextSiblingElement("tileset"))
 	{
@@ -564,7 +590,6 @@ Tileset Mapa::ObtenirInformacioAdicionalTileset(const char* sourceTempo, Tileset
 void Mapa::ObtenirLayers()
 {
 	// Obtenir i setejar els diferents layers: <map> -> <layer>* n
-
 	tinyxml2::XMLElement* layer = _map->FirstChildElement("layer");
 	for (tinyxml2::XMLElement* layer = _map->FirstChildElement("layer"); layer != NULL; layer = layer->NextSiblingElement("layer"))
 	{
@@ -685,6 +710,45 @@ void Mapa::LoadExtres()
 	_rscManager->setAlphaGraphic(_idSquare_Blue, 255 / 2);
 	_rscManager->setAlphaGraphic(_idSquare_Red, 255 / 2);
 	_rscManager->setAlphaGraphic(_idSquare_Pink, 255 / 2);
+}
+
+void Mapa::LoadCultius()
+{
+	tinyxml2::XMLDocument fileCultius;
+	Cultiu cultiuTmp;
+
+	// Obrir fitxer i comprobar	
+	if (fileCultius.LoadFile("Resources/XMLs/Cultius.xml") != tinyxml2::XML_SUCCESS)
+		cout << "Load XML file (Cultius.xml) ->" << fileCultius.ErrorStr();
+	else
+		cout << "Load XML file (Cultius.xml) ->OK" << endl;
+
+	cout << "-------------------------------------------------------------------" << endl;
+
+	// Obtenir llista <cultius>
+	tinyxml2::XMLElement* cultius = fileCultius.FirstChildElement("CULTIUS");
+
+	// Obtenir i setejar les diferents plantes: <CULTIUS> -> <PLANTA>* n
+	tinyxml2::XMLElement* plantes = cultius->FirstChildElement("PLANTA");
+	for (tinyxml2::XMLElement* plantes = cultius->FirstChildElement("PLANTA"); plantes != NULL; plantes = plantes->NextSiblingElement("PLANTA"))
+	{
+		/// Obtenir atributs de la PLANTA actual
+		cultiuTmp.nom = plantes->Attribute("nom");
+		plantes->QueryAttribute("preu", &cultiuTmp.preu);
+		plantes->QueryAttribute("dies", &cultiuTmp.dies);
+		plantes->QueryAttribute("numFases", &cultiuTmp.numFases);
+		plantes->QueryAttribute("renovable", &cultiuTmp.renovable);
+		cultiuTmp.nomTilemap = plantes->Attribute("tilemap");
+		
+		////// Processar Fases
+		const char* fases = plantes->Attribute("fases");
+
+		////// Processar estacions
+		const char* estacions = plantes->Attribute("estacio");
+
+		////// Processar tileNums
+		const char* tileNums = plantes->Attribute("tilenums");	
+	}
 }
 
 #pragma endregion

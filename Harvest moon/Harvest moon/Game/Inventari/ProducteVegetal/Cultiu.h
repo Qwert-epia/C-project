@@ -1,25 +1,21 @@
 #pragma once
 #include <string>
+#include <vector>
 
-enum Llavors
-{
-	NAP, PATATA, TOMAQUET, BLAT, ALBERGINIA, CACAUET, PASTANAGA, BROQUIL, HERBA
-};
+#include "../../Efectes adversos/Temps/Estacio.h"
+#include "Llavor.h"
+#include "../../Mapa/Tileset.h"
 
-enum Estacions {
-	PRIMAVERA, ESTIU, TARDO, HIVERN
-};
+class Cultiu {
 
-class Cultiu
-{
 public:
-
-private:
 	std::string nom;
 	float preu;
 	int dies;
 	int numFases;
-	int fases[20];
-	Estacions quanPlantar[4];
+	vector<int> fases;
+	vector<Estacio> quanPlantar;
 	bool renovable;
+	string nomTilemap;		// sourceTsx
+	vector<int> idTiles;	// Id de cada tile
 };

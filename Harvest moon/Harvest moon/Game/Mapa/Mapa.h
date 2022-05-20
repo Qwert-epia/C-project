@@ -6,14 +6,12 @@
 
 #include "Layer.h"
 #include "Tileset.h"
+#include "../Inventari/ProducteVegetal/Cultiu.h"
+#include "../Jugador/Direccio.h"
 
 #include<iostream>
 #include<fstream>
 
-enum Direcio
-{
-	NORD, SUD, OEST, EST
-};
 
 class Mapa {
 
@@ -24,7 +22,7 @@ public:
 	};
 	void setVideoManager(Video* video) { _video = video; }
 	void setResourceManager(ResourceManager* rscManager) { _rscManager = rscManager; }
-		
+
 	// Get-set
 	int getWidth() { return _width; }
 	int getHeight() { return _heigth; }
@@ -34,7 +32,7 @@ public:
 	void setActivarRequadre(bool activarRequadre) { _activarRequadre = activarRequadre; }
 	int getPosSquareX() { return _posicioInteractuar_X; }
 	int getPosSquareY() { return _posicioInteractuar_Y; }
-	
+
 	// Funcions
 	void renderMap(int camX, int camY);
 	void RenderRequadre(int posX, int posY, int posXAmbCam, int posYAmbCam, Direcio direcio);
@@ -46,7 +44,10 @@ public:
 	bool HiHaObstacle_OEST(int camJugX, int camJugY);
 	bool HiHaObstacle_NORD(int camJugX, int camJugY);
 	bool HiHaObstacle_SUD(int camJugX, int camJugY);
-
+	void Llaurar();
+	void Plantar(int quinaPlanta);
+	void Regar();
+	void Femtar();
 	void ModificarData_PlantarTomata();
 	void ModificarData_Desplantar();
 	void GuardarMapa();
@@ -76,6 +77,9 @@ private:
 	tinyxml2::XMLDocument _tmx;
 	tinyxml2::XMLElement* _map;
 
+	// Info cultius
+	vector<Cultiu> _tipusCultius;
+
 	// Camera i interacions
 	int _cameraX;
 	int _cameraY;
@@ -100,6 +104,7 @@ private:
 	void ObtenirLayers();
 	int BuscarTileset(int tileAPintar);
 	void LoadExtres();
+	void LoadCultius();
 
 	// Funcions internes
 	int ComprobarLimitsCamX(int camX);
