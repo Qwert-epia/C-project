@@ -1,7 +1,7 @@
 #pragma once
-#include "../../../Engine/Scene/Scene.h"
+#include "../Escena.h"
 
-class CovaTapada : public Scene
+class CovaTapada : public Escena
 {
 };
 

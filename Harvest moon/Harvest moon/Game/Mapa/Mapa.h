@@ -51,6 +51,7 @@ public:
 	void ModificarData_Desplantar();
 	void GuardarMapa();
 	int ContigutCela();
+	void ResetsPosicioRequadre();
 
 	~Mapa();
 
@@ -79,8 +80,13 @@ private:
 	int _cameraX;
 	int _cameraY;
 	int _idSquare_Green;
+	int _idSquare_Blue;
 	int _idSquare_Red;
+	int _idSquare_Pink;
 	bool _activarRequadre;
+	bool _activarRequadre_Plantar;
+	bool _activarRequadre_Regar;
+	bool _activarRequadre_Abonar;
 	int _posicioInteractuar_X;
 	int _posicioInteractuar_Y;
 	int _posicioInteractuarDibuix_X;

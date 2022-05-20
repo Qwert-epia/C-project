@@ -31,9 +31,11 @@ public:
 	void Render();
 	void CanviEscena(EscenaEnum seguentEscena);
 
-	EscenaEnum getEscenaActualEnum() { return _escenaActual; };
-	Escena* getEscenaActual() { return _vectorEscenes[_escenaActual]; };
-	void NomEscenaActual();
+	EscenaEnum getEscenaQueToca() { return _escenaActual; }
+	void setEscenaQueToca(EscenaEnum numEscena) { _escenaActual = numEscena; }
+
+	Escena* getEscenaActual() { return _vectorEscenes[_escenaActual]; }	
+	void NomEscenaActual();	
 
 	~DirectorEscenes();
 
@@ -45,5 +47,6 @@ private:
 	static DirectorEscenes* _directorEscenesInstance;	// Singleton instance
 		
 	std::vector<Escena*> _vectorEscenes;
-	EscenaEnum _escenaActual;	
+	
+	EscenaEnum _escenaActual;
 };

@@ -13,26 +13,40 @@ void Granja::Init(Video* video, ResourceManager* rscManager) {
 
 void Granja::ReInit()
 {
+	_videoEscena->clearScreen();
+	_posMonX = 34;
+	_posMonY = 408;
+	_dirActual = EST;
+	//_canviEscena = false;
+	map->setActivarRequadre(false);
+	_numEscenaQueVullAnar = GRANJA;
+	map->ResetsPosicioRequadre();
 }
 
 void Granja::Render()
 {
+	// Posicions Mon, Camera, Jugador i Requadre
+	int posCamX = map->NovaPosicioCamX(_posMonX);
+	int posCamY = map->NovaPosicioCamY(_posMonY);
+	int posJugadorX = _posMonX - posCamX;
+	int posJugadorY = _posMonY - posCamY;
+
+	// RENDERS
+	map->renderMap(posCamX, posCamY);
+	_jugadorGranja->RenderJugador(posJugadorX, posJugadorY);
+	map->RenderRequadre(_posMonX, _posMonY, posJugadorX, posJugadorY, _dirActual);
+	_videoEscena->updateScreen();
 }
 
 void Granja::Update()
 {
-	cout << "Entra a granja" << endl;
+	std::cout << "Entra a granja" << endl;
 
 	bool goexit = false;
 	bool key_Up = false;
 	bool key_Down = false;
 	bool key_Right = false;
 	bool key_Left = false;
-
-	bool key_escena1 = false;	// F5
-	bool key_escena2 = false;	// F6
-	bool key_escena3 = false;	// F7
-	bool key_escena4 = false;	// F8
 
 	bool key_Requadre = false;
 	bool key_Guardar = false;
@@ -44,14 +58,7 @@ void Granja::Update()
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
 
-			case SDL_QUIT:
-				goexit = true;
-				break;
-
 			case SDL_KEYDOWN:
-				if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
-					goexit = true;
-				}
 				if (event.key.keysym.scancode == SDL_SCANCODE_UP || event.key.keysym.scancode == SDL_SCANCODE_W) {
 					key_Up = true;
 				}
@@ -80,28 +87,6 @@ void Granja::Update()
 					if (!key_Guardar)
 						key_Guardar = true;
 				}
-
-				if (event.key.keysym.scancode == SDL_SCANCODE_F5) {
-					if (!key_escena1)
-						key_escena1 = true;
-				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_F6) {
-					if (!key_escena2)
-						key_escena2 = true;
-				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_F7) {
-					if (!key_escena3)
-						key_escena3 = true;
-				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_F8) {
-					if (!key_escena4)
-						key_escena4 = true;
-				}
-
-				// SORTIR MANUAL
-				if (event.key.keysym.scancode == SDL_SCANCODE_F1) {
-					goexit = true;
-				}
 				break;
 
 			case SDL_MOUSEBUTTONUP:
@@ -120,56 +105,36 @@ void Granja::Update()
 
 		if (key_Right)
 		{
-			dirActual = EST;
-			if (!map->HiHaObstacle_EST(posMonX, posMonY))
-				posMonX++;
+			_dirActual = EST;
+			if (!map->HiHaObstacle_EST(_posMonX, _posMonY))
+				_posMonX++;
 
-			EscriurePosicio(dirActual, map, key_Requadre);
+			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 		if (key_Left)
 		{
-			dirActual = OEST;
-			if (!map->HiHaObstacle_OEST(posMonX, posMonY))
-				posMonX--;
+			_dirActual = OEST;
+			if (!map->HiHaObstacle_OEST(_posMonX, _posMonY))
+				_posMonX--;
 
-			EscriurePosicio(dirActual, map, key_Requadre);
+			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 		if (key_Up)
 		{
-			dirActual = NORD;
-			if (!map->HiHaObstacle_NORD(posMonX, posMonY))
-				posMonY--;
+			_dirActual = NORD;
+			if (!map->HiHaObstacle_NORD(_posMonX, _posMonY))
+				_posMonY--;
 
-			EscriurePosicio(dirActual, map, key_Requadre);
+			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 		if (key_Down)
 		{
-			dirActual = SUD;
-			if (!map->HiHaObstacle_SUD(posMonX, posMonY))
-				posMonY++;
+			_dirActual = SUD;
+			if (!map->HiHaObstacle_SUD(_posMonX, _posMonY))
+				_posMonY++;
 
-			EscriurePosicio(dirActual, map, key_Requadre);
+			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
-
-
-
-		if (key_escena1)
-		{
-
-		}
-		if (key_escena2)
-		{
-
-		}
-		if (key_escena3)
-		{
-
-		}
-		if (key_escena4)
-		{
-
-		}
-
 
 
 		if (key_Requadre) map->setActivarRequadre(true);
@@ -178,95 +143,85 @@ void Granja::Update()
 		if (key_Guardar)
 		{
 			map->GuardarMapa();
-			cout << "Partida guardada!" << endl;
+			std::cout << "Partida guardada!" << endl;
 			key_Guardar = false;
 		}
 		if (mouse_click_plantar)
 		{
 			map->ModificarData_PlantarTomata();
-			cout << "Tomata plantada!" << endl;
+			std::cout << "Tomata plantada!" << endl;
 			mouse_click_plantar = false;
 		}
 		if (mouse_click_desplantar)
 		{
 			map->ModificarData_Desplantar();
-			cout << "Desplantat!" << endl;
+			std::cout << "Desplantat!" << endl;
 			mouse_click_desplantar = false;
 		}
 
 
-		// Posicions Mon, Camera, Jugador i Requadre
-		int posCamX = map->NovaPosicioCamX(posMonX);
-		int posCamY = map->NovaPosicioCamY(posMonY);
-		int posJugadorX = posMonX - posCamX;
-		int posJugadorY = posMonY - posCamY;
-
-		// RENDERS
-		map->renderMap(posCamX, posCamY);
-		_jugadorGranja->RenderJugador(posJugadorX, posJugadorY);
-		map->RenderRequadre(posMonX, posMonY, posJugadorX, posJugadorY, dirActual);
-
-		_videoEscena->updateScreen();
-
+		// CELES ESPECIALS
 		int contigutCela = map->ContigutCela();
-		// Canvis d'escenes
-		if (contigutCela == 290)
-		{
-			goexit = true;
-			_numEscenaQueVullAnar = POBLE;
-			cout << "Vas a poble" << endl;
-		}
-		else if (contigutCela == 291)
-		{
-			goexit = true;
-			_numEscenaQueVullAnar = CASA;
-			cout << "Vas a casa" << endl;
-		}
-		else if (contigutCela == 292)
-		{
-			goexit = true;
-			_numEscenaQueVullAnar = ESTABLE_VAQUES;
-			cout << "Vas a vaques" << endl;
-		}
-		else if (contigutCela == 293)
-		{
-			goexit = true;
-			_numEscenaQueVullAnar = ESTABLE_GALLINES;
-			cout << "Vas a gallines" << endl;
-		}
-		else if (contigutCela == 294)
-		{
-			goexit = true;
-			_numEscenaQueVullAnar = CASETA;
-			cout << "Vas a caseta" << endl;
-		}
 
 		// Contenidor negocis
 		if (contigutCela == 295)
 		{
 			// TODO : Incrementar diners segons el producte
-			cout << "Toques contenidor" << endl;
+			std::cout << "Toques contenidor" << endl;
 		}
 
+		// Canvis d'escenes
+		if (contigutCela == 290)
+		{
+			goexit = true;
+			_numEscenaQueVullAnar = POBLE;
+			std::cout << "Vas a poble" << endl;
+		}
+		else if (contigutCela == 291)
+		{
+			goexit = true;
+			_numEscenaQueVullAnar = CASA;
+			std::cout << "Vas a casa" << endl;
+		}
+		else if (contigutCela == 292)
+		{
+			goexit = true;
+			_numEscenaQueVullAnar = ESTABLE_VAQUES;
+			std::cout << "Vas a vaques" << endl;
+		}
+		else if (contigutCela == 293)
+		{
+			goexit = true;
+			_numEscenaQueVullAnar = ESTABLE_GALLINES;
+			std::cout << "Vas a gallines" << endl;
+		}
+		else if (contigutCela == 294)
+		{
+			goexit = true;
+			_numEscenaQueVullAnar = CASETA;
+			std::cout << "Vas a caseta" << endl;
+		}
+		else
+			Render();
+				
 	} while (!goexit);
 
-	cout << "Surt de granja" << endl;
-	_numEscenaQueVullAnar = INTRO;
+	std::cout << "Surt de granja" << endl;
 }
 
 void Granja::EscriurePosicio(Direcio direcio, Mapa* map, bool actiu)
 {
-	/*switch (direcio)
+	switch (direcio)
 	{
-	case NORD: cout << "JugadorX:" << posMonX << ", JugadorY:" << posMonY << ", Dir:" << "NORD"; break;
-	case SUD: cout << "JugadorX:" << posMonX << ", JugadorY:" << posMonY << ", Dir:" << "SUD"; break;
-	case OEST: cout << "JugadorX:" << posMonX << ", JugadorY:" << posMonY << ", Dir:" << "OEST"; break;
-	case EST: cout << "JugadorX:" << posMonX << ", JugadorY:" << posMonY << ", Dir:" << "EST"; break;
+	case NORD: std::cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "NORD"; break;
+	case SUD: std::cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "SUD"; break;
+	case OEST: std::cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "OEST"; break;
+	case EST: std::cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "EST"; break;
 	default: break;
 	}
 
 	if (actiu)
-		cout << ", RequadreX:" << map->getPosSquareX() << ", RequadreY:" << map->getPosSquareY() << endl;
+		std::cout << ", RequadreX:" << map->getPosSquareX() << ", RequadreY:" << map->getPosSquareY() << endl;
 	else
-		cout << endl;*/
+		std::cout << endl;
 }

@@ -77,6 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\SDLs\SDL2\include;..\SDLs\SDL2_image\include;..\SDLs\SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\SDLs\SDL2\lib\x86;..\SDLs\SDL2_image\lib\x86;..\SDLs\SDL2_mixer\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -114,6 +116,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -287,6 +290,7 @@
     <Image Include="Resources\Images\Altres\tileset_scroll.png" />
     <Image Include="Resources\Images\Barn &amp; Coop Inside.png" />
     <Image Include="Resources\Images\base.png" />
+    <Image Include="Resources\Images\Blue.png" />
     <Image Include="Resources\Images\Chicken.png" />
     <Image Include="Resources\Images\Crops and items.png" />
     <Image Include="Resources\Images\Edificis\Caseta 1.png" />

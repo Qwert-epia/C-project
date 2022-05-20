@@ -19,7 +19,7 @@ void Mapa::renderMap(int camX, int camY)
 	for (int i = 0; i < numLayers - 1; i++) // -1 pq l'últim nivell es de logica (accessos/portes/contenidors)
 	{
 		// Obtenir data del layer actual
-		vector<vector<int>> layerData = _layers.at(i).data;
+		vector<vector<int>>layerData = _layers.at(i).data;
 
 		int posCamX = 0;
 		int posCamY = 0;
@@ -282,6 +282,7 @@ void Mapa::GuardarMapa()
 	part1 += "<tileset firstgid=\"248\" source=\"Edifici sitja.tsx\"/>\n";
 	part1 += "<tileset firstgid=\"278\" source=\"Caseta 1.tsx\"/>\n";
 	part1 += "<tileset firstgid=\"284\" source=\"Caseta 2.tsx\"/>\n";
+	part1 += "<tileset firstgid=\"290\" source=\"Intern.tsx\"/>\n";
 	part1 += "<imagelayer id=\"2\" name=\"Image Layer 1\">\n";
 	part1 += "<image source=\"../base.png\" width=\"784\" height=\"784\"/>\n";
 	part1 += "</imagelayer>\n";
@@ -347,6 +348,59 @@ void Mapa::GuardarMapa()
 	part3 += "123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123\n";
 	part3 += "</data>\n";
 	part3 += "</layer>\n";
+	part3 += "<layer id=\"7\" name=\"Checkpoints\" width=\"49\" height=\"49\">\n";
+	part3 += "<data encoding=\"csv\">\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,291,0,0,0,0,0,0,0,0,0,0,0,292,0,0,0,0,0,0,0,0,293,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "290,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "290,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "290,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,294,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "290,0,0,0,0,0,0,295,295,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "290,0,0,0,0,0,0,295,295,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n";
+	part3 += "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\n";
+	part3 += "</data>\n";
+	part3 += "</layer>\n";
 	part3 += "</map>\n";
 
 	// Escriure i tancar
@@ -368,6 +422,12 @@ int Mapa::ContigutCela()
 
 	// Layer de logica
 	return _layers.at(2).data[x][y];
+}
+
+void Mapa::ResetsPosicioRequadre()
+{
+	_posicioInteractuar_X = 0;
+	_posicioInteractuar_Y = 0;
 }
 
 Mapa::~Mapa() {}
@@ -407,9 +467,9 @@ void Mapa::LoadMapa()
 {
 	// Obrir fitxer i comprobar	
 	if (_tmx.LoadFile("Resources/Images/Tmx/Granja.tmx") != tinyxml2::XML_SUCCESS)
-		cout << "Load TMX file (Granja.tmx) -> " << _tmx.ErrorStr();
+		cout << "Load TMX file (Granja.tmx) ->" << _tmx.ErrorStr();
 	else
-		cout << "Load TMX file (Granja.tmx) -> OK" << endl;
+		cout << "Load TMX file (Granja.tmx) ->OK" << endl;
 
 	cout << "-------------------------------------------------------------------" << endl;
 
@@ -439,7 +499,7 @@ void Mapa::ObtenirAtributs()
 
 void Mapa::ObtenirTilesets()
 {
-	// Obtenir i setejar els diferents tilesets: <map>  ->  <tileset> * n	
+	// Obtenir i setejar els diferents tilesets: <map> -> <tileset>* n	
 
 	tinyxml2::XMLElement* tileset = _map->FirstChildElement("tileset");
 	for (tinyxml2::XMLElement* tileset = _map->FirstChildElement("tileset"); tileset != NULL; tileset = tileset->NextSiblingElement("tileset"))
@@ -478,9 +538,9 @@ Tileset Mapa::ObtenirInformacioAdicionalTileset(const char* sourceTempo, Tileset
 	tinyxml2::XMLDocument _tmxTemporal;
 
 	if (_tmxTemporal.LoadFile(rutaTsx.c_str()) != tinyxml2::XML_SUCCESS)
-		cout << "Load TSX file (" << rutaTsx.c_str() << ") -> " << _tmxTemporal.ErrorStr();
+		cout << "Load TSX file (" << rutaTsx.c_str() << ") ->" << _tmxTemporal.ErrorStr();
 	else
-		cout << "Load TSX file (" << rutaTsx.c_str() << ") -> OK " << endl;
+		cout << "Load TSX file (" << rutaTsx.c_str() << ") ->OK " << endl;
 
 	cout << "-------------------------------------------------------------------" << endl;
 
@@ -503,7 +563,7 @@ Tileset Mapa::ObtenirInformacioAdicionalTileset(const char* sourceTempo, Tileset
 
 void Mapa::ObtenirLayers()
 {
-	// Obtenir i setejar els diferents layers: <map>  ->  <layer> * n
+	// Obtenir i setejar els diferents layers: <map> -> <layer>* n
 
 	tinyxml2::XMLElement* layer = _map->FirstChildElement("layer");
 	for (tinyxml2::XMLElement* layer = _map->FirstChildElement("layer"); layer != NULL; layer = layer->NextSiblingElement("layer"))
@@ -533,12 +593,12 @@ void Mapa::ObtenirLayers()
 		dataEnBrut = data->GetText();
 
 		/// Inicialitzar vector bidimensional "contingutData" (vector de vectors<int>) (width=X, height=Y)
-		vector<vector<int>> contingutData;
+		vector<vector<int>>contingutData;
 		int widthLayerActual = layerTempo.getWidth();
 		int heigthLayerActual = layerTempo.getHeight();
 		for (int x = 0; x < widthLayerActual; x++)
 		{
-			vector<int> vectorTemporal;
+			vector<int>vectorTemporal;
 			contingutData.push_back(vectorTemporal);
 		}
 
@@ -546,7 +606,7 @@ void Mapa::ObtenirLayers()
 		int sizeData = dataEnBrut.size();
 		int punterInici = 0;
 		int punterFinal = 0;
-		vector<int> vectorDataTractat;
+		vector<int>vectorDataTractat;
 
 		for (int i = 0; i < sizeData; i++)
 		{
@@ -568,7 +628,7 @@ void Mapa::ObtenirLayers()
 			}
 		}
 
-		/// Escriure les dades tractades en el vector de vectors<int> "contingutData" fent un pushback() per tota la fila X i llavors incrementa Y per fer una nova fila de pushbacks()
+		/// Escriure les dades tractades en el vector de vectors<int>"contingutData" fent un pushback() per tota la fila X i llavors incrementa Y per fer una nova fila de pushbacks()
 		int punterVectorTractat = 0;
 		for (int y = 0; y < heigthLayerActual; y++)
 		{
@@ -617,10 +677,14 @@ int Mapa::BuscarTileset(int tileAPintar)
 void Mapa::LoadExtres()
 {
 	_idSquare_Green = _rscManager->loadAndGetGraphicID("Resources/Images/Green.png");
+	_idSquare_Blue = _rscManager->loadAndGetGraphicID("Resources/Images/Blue.png");
 	_idSquare_Red = _rscManager->loadAndGetGraphicID("Resources/Images/Red.png");
+	_idSquare_Pink = _rscManager->loadAndGetGraphicID("Resources/Images/Pink.png");
 
 	_rscManager->setAlphaGraphic(_idSquare_Green, 255 / 2);
+	_rscManager->setAlphaGraphic(_idSquare_Blue, 255 / 2);
 	_rscManager->setAlphaGraphic(_idSquare_Red, 255 / 2);
+	_rscManager->setAlphaGraphic(_idSquare_Pink, 255 / 2);
 }
 
 #pragma endregion

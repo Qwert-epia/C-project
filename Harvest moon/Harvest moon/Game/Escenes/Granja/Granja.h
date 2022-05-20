@@ -22,9 +22,10 @@ public:
 
 
 private:
-	int posMonX = 16;
-	int posMonY = 16;
-	Direcio dirActual = SUD;
+	int _posMonX;
+	int _posMonY;
+	//bool _canviEscena;
+	Direcio _dirActual;
 	void EscriurePosicio(Direcio direcio, Mapa* map, bool actiu);
 	Jugador* _jugadorGranja;
 	EscenaEnum _numEscenaQueVullAnar;

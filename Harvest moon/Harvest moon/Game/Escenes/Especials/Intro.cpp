@@ -1,9 +1,18 @@
 #include "Intro.h"
 
-Intro::Intro()
+void Intro::Init(Video* video, ResourceManager* rscManager)
 {
 }
 
-Intro::~Intro()
+void Intro::ReInit()
+{
+	_videoEscena->clearScreen();
+}
+
+void Intro::Render()
+{
+}
+
+void Intro::Update()
 {
 }

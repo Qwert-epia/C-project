@@ -460,6 +460,9 @@
     <Image Include="Resources\Images\Edificis\Interior estable vaca.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\Images\Blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Sounds\death.wav">

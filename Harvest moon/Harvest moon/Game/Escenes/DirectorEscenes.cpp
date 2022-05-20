@@ -2,8 +2,12 @@
 
 #include "Especials/Intro.h"
 #include "Especials/MainMenu.h"
-#include "Especials/Proves.h"
 #include "Granja/Granja.h"
+#include "Granja/Casa.h"
+#include "Granja/EstableGallines.h"
+#include "Granja/EstableVaques.h"
+#include "Granja/CasetaEines.h"
+#include "Poble\Poble.h"
 
 DirectorEscenes* DirectorEscenes::_directorEscenesInstance = NULL;
 
@@ -16,7 +20,7 @@ void DirectorEscenes::Update()
 	{
 	case INTRO:				_vectorEscenes[INTRO]->Update();			break;
 	case MAINMENU:			_vectorEscenes[MAINMENU]->Update();			break;
-	case GRANJA:			_vectorEscenes[GRANJA]->Update();	numeroEscena = ((Granja*)_vectorEscenes[GRANJA])->getNumEscena(); break;
+	case GRANJA:			_vectorEscenes[GRANJA]->Update();			numeroEscena = ((Granja*)_vectorEscenes[GRANJA])->getNumEscena();	break;
 	case POBLE:				_vectorEscenes[POBLE]->Update();			break;
 	case CASA:				_vectorEscenes[CASA]->Update();				break;
 	case ESTABLE_GALLINES:	_vectorEscenes[ESTABLE_GALLINES]->Update();	break;
@@ -28,9 +32,7 @@ void DirectorEscenes::Update()
 	}
 
 	if (numeroEscena != _LASTSCENE)
-	{
 		CanviEscena(numeroEscena);
-	}
 }
 
 void DirectorEscenes::Render()
@@ -72,8 +74,7 @@ void DirectorEscenes::NomEscenaActual()
 	case ESTABLE_VAQUES:	cout << "ESTABLE_VAQUES" << endl;	break;
 	case CASETA:			cout << "CASETA" << endl;			break;
 	case _LASTSCENE:		cout << "_LASTSCENE" << endl;		break;
-	default:
-		break;
+	default: break;
 	}
 }
 
@@ -88,22 +89,29 @@ DirectorEscenes::DirectorEscenes(Video* video, ResourceManager* rscManager, Juga
 	Intro* intro = new Intro();
 	MainMenu* mainMenu = new MainMenu();
 	Granja* granja = new Granja();
-	Proves* proves = new Proves();
+	Poble* poble = new Poble();
+	Casa* casa = new Casa();
+	EstableGallines* estableGallines = new EstableGallines();
+	EstableVaques* estableVaques = new EstableVaques();
+	CasetaEines* caseta = new CasetaEines();
 
 	_vectorEscenes[INTRO] = intro;
 	_vectorEscenes[MAINMENU] = mainMenu;
 	_vectorEscenes[GRANJA] = granja;
-	_vectorEscenes[POBLE] = granja;
-	_vectorEscenes[CASA] = granja;
-	_vectorEscenes[ESTABLE_GALLINES] = granja;
-	_vectorEscenes[ESTABLE_VAQUES] = granja;
-	_vectorEscenes[CASETA] = granja;
+	_vectorEscenes[POBLE] = poble;
+	_vectorEscenes[CASA] = casa;
+	_vectorEscenes[ESTABLE_GALLINES] = estableGallines;
+	_vectorEscenes[ESTABLE_VAQUES] = estableVaques;
+	_vectorEscenes[CASETA] = caseta;
 
 	intro->Init(video, rscManager);
 	mainMenu->Init(video, rscManager);
 	granja->Init(video, rscManager);
 	granja->setJugador(jugador);
-	proves->Init(video, rscManager);
+	poble->Init(video, rscManager);
+	casa->Init(video, rscManager);
+	estableGallines->Init(video, rscManager);
+	estableVaques->Init(video, rscManager);
 
-	_escenaActual = INTRO;
+	_escenaActual = CASA;
 }

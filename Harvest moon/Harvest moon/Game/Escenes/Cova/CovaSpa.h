@@ -1,7 +1,7 @@
 #pragma once
-#include "../../../Engine/Scene/Scene.h"
+#include "../Escena.h"
 
-class CovaSpa : public Scene
+class CovaSpa : public Escena
 {
 };
 
