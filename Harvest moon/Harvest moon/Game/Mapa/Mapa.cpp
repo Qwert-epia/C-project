@@ -264,7 +264,7 @@ void Mapa::Plantar(int quinaPlanta)
 
 void Mapa::Regar()
 {
-	// TODO: regar si no esta regat
+	// PENDENT: regar si no esta regat
 	if (_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] == 1) {
 		_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] = 2;
 	}
@@ -272,7 +272,7 @@ void Mapa::Regar()
 
 void Mapa::Femtar()
 {
-	// TODO: implementar
+	// PENDENT: implementar
 }
 
 void Mapa::ModificarData_PlantarTomata()
@@ -714,8 +714,7 @@ void Mapa::LoadExtres()
 
 void Mapa::LoadCultius()
 {
-	tinyxml2::XMLDocument fileCultius;
-	Cultiu cultiuTmp;
+	tinyxml2::XMLDocument fileCultius;	
 
 	// Obrir fitxer i comprobar	
 	if (fileCultius.LoadFile("Resources/XMLs/Cultius.xml") != tinyxml2::XML_SUCCESS)
@@ -732,22 +731,95 @@ void Mapa::LoadCultius()
 	tinyxml2::XMLElement* plantes = cultius->FirstChildElement("PLANTA");
 	for (tinyxml2::XMLElement* plantes = cultius->FirstChildElement("PLANTA"); plantes != NULL; plantes = plantes->NextSiblingElement("PLANTA"))
 	{
-		/// Obtenir atributs de la PLANTA actual
-		cultiuTmp.nom = plantes->Attribute("nom");
-		plantes->QueryAttribute("preu", &cultiuTmp.preu);
-		plantes->QueryAttribute("dies", &cultiuTmp.dies);
-		plantes->QueryAttribute("numFases", &cultiuTmp.numFases);
-		plantes->QueryAttribute("renovable", &cultiuTmp.renovable);
-		cultiuTmp.nomTilemap = plantes->Attribute("tilemap");
-		
+		Cultiu cultiuTmp;
+
+		/// Obtenir informacio de cada camp de la PLANTA actual
+		tinyxml2::XMLElement* nomTmp = plantes->FirstChildElement("nom");
+		cultiuTmp.nom = nomTmp->GetText();
+
+		tinyxml2::XMLElement* preuTmp = plantes->FirstChildElement("preu");
+		cultiuTmp.preu = stoi(preuTmp->GetText());
+
+		tinyxml2::XMLElement* diesTmp = plantes->FirstChildElement("dies");
+		cultiuTmp.dies = stoi(diesTmp->GetText());
+
+		tinyxml2::XMLElement* numFasesTmp = plantes->FirstChildElement("numFases");
+		cultiuTmp.numFases = stoi(numFasesTmp->GetText());
+
 		////// Processar Fases
-		const char* fases = plantes->Attribute("fases");
+		tinyxml2::XMLElement* fasesTmp = plantes->FirstChildElement("fases");
+		string tmp = fasesTmp->GetText();
+		int sizeFases = tmp.size();
+		int punterInici = 0;
+		int llargadaNum = 0;
+
+		for (int i = 0; i < sizeFases + 1; i++)
+		{
+			if (tmp[i] == ',' || i == sizeFases)
+			{
+				string strTempo = tmp.substr(punterInici, llargadaNum);
+				cultiuTmp.fases.push_back(stoi(strTempo));
+				punterInici = i + 1;
+				llargadaNum = 0;
+			}
+			else
+				llargadaNum++;
+		}
 
 		////// Processar estacions
-		const char* estacions = plantes->Attribute("estacio");
+		tinyxml2::XMLElement* estacioTmp = plantes->FirstChildElement("estacio");
+		tmp = estacioTmp->GetText();
+		int sizeEstacions = tmp.size();
+		punterInici = 0;
+		llargadaNum = 0;
 
-		////// Processar tileNums
-		const char* tileNums = plantes->Attribute("tilenums");	
+		for (int i = 0; i < sizeEstacions + 1; i++)
+		{
+			if (tmp[i] == ',' || i == sizeEstacions)
+			{
+				string strTempo = tmp.substr(punterInici, llargadaNum);
+
+				if (strTempo == "Primavera") cultiuTmp.quanPlantar.push_back(PRIMAVERA);
+				else if (strTempo == "Estiu") cultiuTmp.quanPlantar.push_back(ESTIU);
+				else if (strTempo == "Tardo") cultiuTmp.quanPlantar.push_back(TARDO);
+				else if (strTempo == "Hivern") cultiuTmp.quanPlantar.push_back(HIVERN);
+
+				punterInici = i + 1;
+				llargadaNum = 0;
+			}
+			else
+				llargadaNum++;
+		}
+
+		tinyxml2::XMLElement* renovableTmp = plantes->FirstChildElement("renovable");
+		if (renovableTmp->GetText() == "si") cultiuTmp.renovable = true;
+		else cultiuTmp.renovable = false;
+
+		tinyxml2::XMLElement* tilemapTmp = plantes->FirstChildElement("tilemap");
+		cultiuTmp.nomTilemap = tilemapTmp->GetText();
+
+		////// Processar tileNums		
+		tinyxml2::XMLElement* tileNumsTmp = plantes->FirstChildElement("tilenums");
+		tmp = tileNumsTmp->GetText();
+		int sizeTileNums = tmp.size();
+		punterInici = 0;
+		llargadaNum = 0;
+
+		for (int i = 0; i < sizeTileNums + 1; i++)
+		{
+			if (tmp[i] == ',' || i == sizeTileNums)
+			{
+				string strTempo = tmp.substr(punterInici, llargadaNum);
+				cultiuTmp.idTiles.push_back(stoi(strTempo));
+				punterInici = i + 1;
+				llargadaNum = 0;
+			}
+			else
+				llargadaNum++;
+		}
+
+		// Afegir a la llista
+		_tipusCultius.push_back(cultiuTmp);
 	}
 }
 

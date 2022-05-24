@@ -40,6 +40,9 @@ int main(int argc, char* args[]) {
 	bool key_escena11 = false;	// F11
 	bool key_escena12 = false;	// F12
 
+	unsigned int lastTime = 0, currentTime, deltaTime;
+	float msFrame = 1 / (FPS / 1000.0f);
+
 	do {
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
@@ -109,23 +112,31 @@ int main(int argc, char* args[]) {
 		}
 
 		// CANVI MANUAL D'ESCENES
-		if (key_escena1)		{ directorEscenes->CanviEscena(INTRO);				key_escena1 = false; }
-		else if (key_escena2)	{ directorEscenes->CanviEscena(MAINMENU);			key_escena2 = false; }
-		else if (key_escena3)	{ directorEscenes->CanviEscena(GRANJA);				key_escena3 = false; }
-		else if (key_escena4)	{ directorEscenes->CanviEscena(POBLE);				key_escena4 = false; }
-		else if (key_escena5)	{ directorEscenes->CanviEscena(CASA);				key_escena5 = false; }
-		else if (key_escena6)	{ directorEscenes->CanviEscena(ESTABLE_GALLINES);	key_escena6 = false; }
-		else if (key_escena7)	{ directorEscenes->CanviEscena(ESTABLE_VAQUES);		key_escena7 = false; }
-		else if (key_escena8)	{ directorEscenes->CanviEscena(CASETA);				key_escena8 = false; }
-		else if (key_escena9)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena9 = false; }
-		else if (key_escena10)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena10 = false; }
-		else if (key_escena11)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena11 = false; }
-		else if (key_escena12)	{ directorEscenes->CanviEscena(_LASTSCENE);			key_escena12 = false; }
+		if (key_escena1) { directorEscenes->CanviEscena(INTRO);	key_escena1 = false; }
+		else if (key_escena2) { directorEscenes->CanviEscena(MAINMENU); key_escena2 = false; }
+		else if (key_escena3) { directorEscenes->CanviEscena(GRANJA); key_escena3 = false; }
+		else if (key_escena4) { directorEscenes->CanviEscena(POBLE); key_escena4 = false; }
+		else if (key_escena5) { directorEscenes->CanviEscena(CASA); key_escena5 = false; }
+		else if (key_escena6) { directorEscenes->CanviEscena(ESTABLE_GALLINES); key_escena6 = false; }
+		else if (key_escena7) { directorEscenes->CanviEscena(ESTABLE_VAQUES); key_escena7 = false; }
+		else if (key_escena8) { directorEscenes->CanviEscena(CASETA); key_escena8 = false; }
+		else if (key_escena9) { directorEscenes->CanviEscena(_LASTSCENE); key_escena9 = false; }
+		else if (key_escena10) { directorEscenes->CanviEscena(_LASTSCENE); key_escena10 = false; }
+		else if (key_escena11) { directorEscenes->CanviEscena(_LASTSCENE); key_escena11 = false; }
+		else if (key_escena12) { directorEscenes->CanviEscena(_LASTSCENE); key_escena12 = false; }
 
-		// Update + render de l'escena actual
-		directorEscenes->Update();
-		directorEscenes->Render();
-		video->updateScreen();
+		// Limitar FPS
+		currentTime = SDL_GetTicks();
+		deltaTime = currentTime - lastTime;
+		if (deltaTime < (int)msFrame) {
+			SDL_Delay((int)msFrame - deltaTime);
+
+			// Update + render de l'escena actual
+			directorEscenes->Update();
+			directorEscenes->Render();
+			video->updateScreen();
+		}
+		lastTime = currentTime;		
 
 	} while (!goexit);
 

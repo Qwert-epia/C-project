@@ -10,7 +10,7 @@ class Cultiu {
 
 public:
 	std::string nom;
-	float preu;
+	int preu;
 	int dies;
 	int numFases;
 	vector<int> fases;

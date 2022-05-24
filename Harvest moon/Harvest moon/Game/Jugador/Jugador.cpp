@@ -114,7 +114,7 @@ void Jugador::AnimacioRecollirFruit(Direcio _direcioActual)
 		_dibuixActual.y = (32 * 2) + 112;
 		break;
 	case EST:
-		// TODO: FER FLIP
+		// PENDENT: FER FLIP
 		_dibuixActual.x = _frameAnimacio * 16;
 		_dibuixActual.y = (32 * 1) + 112;
 		break;
@@ -183,7 +183,7 @@ void Jugador::AnimacioSaltar(Direcio _direcioActual)
 		_dibuixActual.y = (32 * 2) + 512;
 		break;
 	case EST:
-		// TODO: FER FLIP
+		// PENDENT: FER FLIP
 		_dibuixActual.x = _frameAnimacio * 16;
 		_dibuixActual.y = (32 * 1) + 512;
 		break;
@@ -212,7 +212,7 @@ void Jugador::AnimacioPortarObjecte(Direcio _direcioActual)
 		_dibuixActual.y = (32 * 2) + 624;
 		break;
 	case EST:
-		// TODO: FER FLIP
+		// PENDENT: FER FLIP
 		_dibuixActual.x = _frameAnimacio * 16;
 		_dibuixActual.y = (32 * 1) + 624;
 		break;
@@ -245,7 +245,7 @@ void Jugador::AnimacioCanviItems(Direcio _direcioActual)
 		_dibuixActual.y = (32 * 2) + 768;
 		break;
 	case EST:
-		// TODO: FER FLIP
+		// PENDENT: FER FLIP
 		_dibuixActual.x = _frameAnimacio * 16;
 		_dibuixActual.y = (32 * 1) + 768;
 		break;

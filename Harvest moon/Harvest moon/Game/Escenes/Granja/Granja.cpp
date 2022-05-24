@@ -5,7 +5,7 @@ void Granja::Init(Video* video, ResourceManager* rscManager)
 	_videoEscena = video;
 	_rscManagerEscena = rscManager;
 
-	// TODO: Guardar i/o obtenir el dia actual desde un fitxer
+	// PENDENT: Guardar i/o obtenir el dia actual desde un fitxer
 	dia = 0;
 	meteoActual.climaActual = ASSOLELLAT;
 	meteoActual.estacioActual = PRIMAVERA;
