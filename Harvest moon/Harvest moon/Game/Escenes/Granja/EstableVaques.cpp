@@ -4,7 +4,6 @@ void EstableVaques::Init(Video* video, ResourceManager* rscManager)
 {
 	_videoEscena = video;
 	_rscManagerEscena = rscManager;
-
 	_idImatgeInteriorEstableVaques = rscManager->loadAndGetGraphicID("Resources/Images/Edificis/Interior estable vaca.png");
 }
 

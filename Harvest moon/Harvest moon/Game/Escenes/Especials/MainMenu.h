@@ -1,7 +1,7 @@
 #pragma once
 #include "../Escena.h"
 
-class MainMenu : public Escena
-{
+class MainMenu : public Escena {
+
 };
 

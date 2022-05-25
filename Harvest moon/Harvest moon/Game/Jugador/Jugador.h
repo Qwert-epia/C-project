@@ -2,13 +2,7 @@
 #include "../../Engine/Graphics/ResourceManager.h"
 #include "../../Engine/Graphics/Video.h"
 #include "../Mapa/Mapa.h"
-
-enum AnimacioActiva
-{
-	IDLE, CAMINAR, CORRER, RECOLLIR_FRUIT, SECAR_SUOR, CANSAT,
-	ESGOTAT, BEURE, SALTAR, PORTAR_OBJECTE, EXERCICIS,
-	CANVI_ITEM, MENJAR
-};
+#include "LlistaAnimacions.h"
 
 class Jugador {
 

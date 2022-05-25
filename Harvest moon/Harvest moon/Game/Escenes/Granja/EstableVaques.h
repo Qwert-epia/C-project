@@ -2,8 +2,8 @@
 #include "../Escena.h"
 #include "../DirectorEscenes.h"
 
-class EstableVaques : public Escena
-{
+class EstableVaques : public Escena {
+
 public:
 
 	void Init(Video* video, ResourceManager* rscManager);

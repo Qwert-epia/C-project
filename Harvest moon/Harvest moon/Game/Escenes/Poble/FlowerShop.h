@@ -1,7 +1,7 @@
 #pragma once
 #include "../Escena.h"
 
-class FlowerShop : public Escena
-{
+class FlowerShop : public Escena {
+
 };
 

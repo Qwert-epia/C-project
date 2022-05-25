@@ -2,24 +2,17 @@
 #include <vector>
 #include <iostream>
 
-#include "Escena.h"
 #include "../../Engine/Graphics/Video.h"
 #include "../../Engine/Graphics/ResourceManager.h"
 #include "../Jugador/Jugador.h"
+#include "Escena.h"
+#include "LlistaEscenes.h"
 
-
-
-// Enum Scenes. All the Scenes in the game.
-enum EscenaEnum {
-	INTRO, MAINMENU, GRANJA, POBLE, CASA, ESTABLE_GALLINES, ESTABLE_VAQUES, CASETA,
-	_LASTSCENE
-};
 
 #define NUM_SCENES _LASTSCENE
 using namespace std;
 
-class DirectorEscenes
-{
+class DirectorEscenes {
 
 public:
 	static DirectorEscenes* getInstance(Video* video, ResourceManager* rscManager, Jugador* jugador) {
@@ -42,6 +35,7 @@ public:
 
 protected:
 	DirectorEscenes(Video* video, ResourceManager* rscManager, Jugador* jugador);
+
 
 private:
 	static DirectorEscenes* _directorEscenesInstance;	// Singleton instance

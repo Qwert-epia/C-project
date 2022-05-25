@@ -1,2 +1,47 @@
-﻿  Mapa.cpp
+﻿  tinyxml2.cpp
+  main.cpp
+D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\C-project\Harvest moon\Harvest moon\Altres\main.cpp(131,17): warning C4018: '<': no coinciden signed/unsigned
+  DirectorEscenes.cpp
+D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\C-project\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Escena.cpp
+  Eina.cpp
+  AnimalShop.cpp
+  Carpenter.cpp
+  Church.cpp
+  FlowerShop.cpp
+  CasetaEines.cpp
+  Cova.cpp
+  CovaProfunda.cpp
+  CovaSpa.cpp
+  CovaTapada.cpp
+  EstableGallines.cpp
+  EstableVaques.cpp
+  Casa.cpp
+  Cultiu.cpp
+  Dialeg.cpp
+  AnimationManager.cpp
+  Generando código...
+  Compilando...
+  ResourceManager.cpp
+  Video.cpp
+  InputManager.cpp
+  Keyboard.cpp
+  SoundManager.cpp
+  Inventari.cpp
+  Jugador.cpp
+  Meteorologia.cpp
+  Intro.cpp
+  Granja.cpp
+D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\C-project\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  MainMenu.cpp
+  JuiceBar.cpp
+  Poble.cpp
+  Restaurant.cpp
+  ToolShop.cpp
+  Layer.cpp
+  Mapa.cpp
+  Tileset.cpp
+  Productes.cpp
+  Proves.cpp
+  Generando código...
   Harvest moon.vcxproj -> D:\Classe\M03 + M05 - Programació (2n)\Projecte final UF3\C-project\Harvest moon\Debug\Harvest moon.exe

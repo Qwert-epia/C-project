@@ -272,6 +272,12 @@
     <ClInclude Include="Game\Jugador\Direccio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Escenes\LlistaEscenes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Jugador\LlistaAnimacions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Llibreries\libFLAC-8.dll" />

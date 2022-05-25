@@ -1,8 +1,7 @@
 #pragma once
 #include "Eines\Eina.h"
 
-class Inventari
-{
+class Inventari {
 
 public:
 	void AgafarEina();
@@ -11,7 +10,7 @@ public:
 
 	int getDiners() { return _diners; }
 	int getEinaActiva() { return _einaActiva; }
-	bool getUtilitzarEina() { return _utilitzarEina; }	
+	bool getUtilitzarEina() { return _utilitzarEina; }
 
 
 private:

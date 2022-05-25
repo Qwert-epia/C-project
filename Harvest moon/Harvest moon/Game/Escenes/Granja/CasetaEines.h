@@ -2,10 +2,9 @@
 #include "../Escena.h"
 #include "../DirectorEscenes.h"
 
-class CasetaEines : public Escena
-{
-public:
+class CasetaEines : public Escena {
 
+public:
 	void Init(Video* video, ResourceManager* rscManager);
 	void ReInit();
 	void Render();

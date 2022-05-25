@@ -4,7 +4,6 @@ void Casa::Init(Video* video, ResourceManager* rscManager)
 {	
 	_videoEscena = video;
 	_rscManagerEscena = rscManager;
-
 	_idImatgeInteriorCasa = rscManager->loadAndGetGraphicID("Resources/Images/Edificis/Interior casa.png");
 }
 

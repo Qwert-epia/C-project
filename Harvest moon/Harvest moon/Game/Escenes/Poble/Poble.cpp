@@ -4,7 +4,6 @@ void Poble::Init(Video* video, ResourceManager* rscManager)
 {
 	_videoEscena = video;
 	_rscManagerEscena = rscManager;
-
 	_idImatgePoble = rscManager->loadAndGetGraphicID("Resources/Images/Village.png");
 }
 

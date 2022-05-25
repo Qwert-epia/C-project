@@ -197,6 +197,7 @@
     <ClInclude Include="Game\Efectes adversos\Temps\Estacio.h" />
     <ClInclude Include="Game\Escenes\DirectorEscenes.h" />
     <ClInclude Include="Game\Escenes\Escena.h" />
+    <ClInclude Include="Game\Escenes\LlistaEscenes.h" />
     <ClInclude Include="Game\Inventari\Eines\Eina.h" />
     <ClInclude Include="Game\Escenes\Poble\AnimalShop.h" />
     <ClInclude Include="Game\Escenes\Poble\Carpenter.h" />
@@ -231,6 +232,7 @@
     <ClInclude Include="Game\Escenes\Poble\Poble.h" />
     <ClInclude Include="Game\Escenes\Poble\Restaurant.h" />
     <ClInclude Include="Game\Escenes\Poble\ToolShop.h" />
+    <ClInclude Include="Game\Jugador\LlistaAnimacions.h" />
     <ClInclude Include="Game\Mapa\Layer.h" />
     <ClInclude Include="Game\Mapa\Mapa.h" />
     <ClInclude Include="Game\Mapa\Tileset.h" />

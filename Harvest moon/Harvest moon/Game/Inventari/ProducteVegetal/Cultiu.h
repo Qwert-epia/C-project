@@ -3,13 +3,13 @@
 #include <vector>
 
 #include "../../Efectes adversos/Temps/Estacio.h"
-#include "Llavor.h"
 #include "../../Mapa/Tileset.h"
+#include "Llavor.h"
 
 class Cultiu {
 
 public:
-	std::string nom;
+	string nom;
 	int preu;
 	int dies;
 	int numFases;

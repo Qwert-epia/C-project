@@ -2,8 +2,8 @@
 #include "../Escena.h"
 #include "../DirectorEscenes.h"
 
-class Poble : public Escena
-{
+class Poble : public Escena {
+
 public:
 
 	void Init(Video* video, ResourceManager* rscManager);

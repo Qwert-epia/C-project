@@ -2,10 +2,7 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
-class Layer
-{
+class Layer {
 
 public:
 	Layer();
@@ -23,13 +20,13 @@ public:
 	int getHeight() { return _height; }
 	void setHeight(int height) { _height = height; }
 
-	vector<vector<int>> data;
+	std::vector<std::vector<int>> data;
 
 
 private:
 	int _id;
-	string _name;
+	std::string _name;
 	int _width;
-	int _height;	
+	int _height;
 };
 
